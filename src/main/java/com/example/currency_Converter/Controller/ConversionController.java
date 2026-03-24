@@ -28,7 +28,7 @@ import java.math.BigDecimal;
             try {
                 String from = request.getFromCurrency();
                 String to = request.getToCurrency();
-                String amountString = request.getAmount();
+                BigDecimal amountString = request.getAmount();
 
                 if (from == null || to == null || amountString == null) {
                     return ResponseEntity
@@ -38,7 +38,7 @@ import java.math.BigDecimal;
 
                 BigDecimal amount;
                 try {
-                    amount = new BigDecimal(amountString);
+                    amount = new BigDecimal(String.valueOf(amountString));
                 } catch (NumberFormatException e) {
                     return ResponseEntity
                             .status(HttpStatus.BAD_REQUEST)
@@ -59,7 +59,7 @@ import java.math.BigDecimal;
                         to.toUpperCase(),
                         amount,
                         converted,
-                        rate
+                        rate.toString()
                 );
 
                 return ResponseEntity.ok(response);

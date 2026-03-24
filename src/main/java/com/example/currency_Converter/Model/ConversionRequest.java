@@ -1,32 +1,59 @@
 package com.example.currency_Converter.Model;
 
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.math.BigDecimal;
+import java.util.UUID;
+
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "curreency_Models")
+@Getter
+@Setter
+@ToString
 public class ConversionRequest {
 
-    private String FromCurrency;
-    private String ToCurrency;
-    private String Amount;
+    @Id
+    @GeneratedValue
+    public UUID id;
 
-    public String getFromCurrency() {
-        return FromCurrency;
-    }
+    @Column(name = "FromCurrency", nullable = false)
+    public String FromCurrency;
 
-    public void setFromCurrency(String fromCurrency) {
-        FromCurrency = fromCurrency;
-    }
+    @Column (name = "ToCurrency", nullable = false)
+    public String ToCurrency;
 
-    public String getToCurrency() {
-        return ToCurrency;
-    }
+    @Column (name = "Ämount", nullable = false)
+    public BigDecimal Amount;
 
-    public void setToCurrency(String toCurrency) {
-        ToCurrency = toCurrency;
-    }
 
-    public String getAmount() {
-        return Amount;
-    }
-
-    public void setAmount(String amount) {
-        Amount = amount;
-    }
+//    private String FromCurrency;
+//    private String ToCurrency;
+//    private String Amount;
+//
+//    public String getFromCurrency() {
+//        return FromCurrency;
+//    }
+//
+//    public void setFromCurrency(String fromCurrency) {
+//        FromCurrency = fromCurrency;
+//    }
+//
+//    public String getToCurrency() {
+//        return ToCurrency;
+//    }
+//
+//    public void setToCurrency(String toCurrency) {
+//        ToCurrency = toCurrency;
+//    }
+//
+//    public String getAmount() {
+//        return Amount;
+//    }
+//
+//    public void setAmount(String amount) {
+//        Amount = amount;
+//    }
 }
