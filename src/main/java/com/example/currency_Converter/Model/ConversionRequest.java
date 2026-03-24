@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
@@ -27,6 +28,11 @@ public class ConversionRequest {
 
     @Column (name = "Ämount", nullable = false)
     public BigDecimal Amount;
+
+    @Column (name = "Result", nullable = false)
+    public String Result;
+
+    public LocalDateTime CreatedAt;
 
 
 //    private String FromCurrency;
